@@ -16,39 +16,41 @@ namespace BistrotUGA.Data.Services
         {
             _restaurants = new List<Restaurant>()
             {
-                new Restaurant{Name = "La Girole", Adress = "2 Rue de le plaine", Id = 1 },
-                new Restaurant{Name = "La Girole2", Adress = "2 Rue de le plaine", Id = 2 }
+                new Restaurant{Name = "L'ardoise", Adress = "2 Rue de Miribel", Id = 0 },
+                new Restaurant{Name = "O Wasabi Grenoble", Adress = "7 Rue Thiers", Id = 1 },
+                new Restaurant{Name = "O 'DELICES DE TUNIS", Adress = "11 Cours de la Libération", Id = 2 }
             };
 
             _dishes = new List<BistrotDish>() {
 
+                // Entrées
+                new BistrotDish{Id = 1 , Name = "Soupe à l'oignon", MenuType = MenuType.Entree, Price = 6, Restaurant = _restaurants[0]},
+                new BistrotDish{Id = 2 , Name = "Gyozas", MenuType = MenuType.Entree, Price = 6, Restaurant = _restaurants[1]},
+                new BistrotDish{Id = 3 , Name = "Salade Tunisienne", MenuType = MenuType.Entree, Price = 6, Restaurant = _restaurants[2]},
+
                 // Plat
-                new BistrotDish{Id = 1 , Name = "Boeuf Bourgignonne", MenuType = MenuType.Plat, Price = 15, Restaurant = _restaurants[0]},
-                new BistrotDish{Id = 2 , Name = "Fondue savoyarde", MenuType = MenuType.Plat, Price = 20},
-                
-                // Boisson
-                new BistrotDish{Id = 3 , Name = "Eau", MenuType = MenuType.Boisson, Price = 2, Restaurant = _restaurants[0]},
-                new BistrotDish{Id = 4 , Name = "Coca", MenuType = MenuType.Boisson, Price = 3},
+                new BistrotDish{Id = 4 , Name = "Braciole Strachnote", MenuType = MenuType.Plat, Price = 20, Restaurant = _restaurants[0]},
+                new BistrotDish{Id = 5 , Name = "Riz cantonais", MenuType = MenuType.Plat, Price = 13, Restaurant = _restaurants[1]},
+                new BistrotDish{Id = 6 , Name = "Ojja Merguez", MenuType = MenuType.Plat, Price = 20, Restaurant = _restaurants[2]},
 
                 // Dessert
-                new BistrotDish{Id = 5 , Name = "Crème Brulée", MenuType = MenuType.Dessert, Price = 5},
-                new BistrotDish{Id = 6 , Name = "Tarte tatin", MenuType = MenuType.Dessert, Price = 5},
-
-                // Fruits de Mer
-                new BistrotDish{Id = 7 , Name = "Huitres", MenuType = MenuType.FruitdeMer, Price = 20},
-                new BistrotDish{Id = 8 , Name = "Moules", MenuType = MenuType.FruitdeMer, Price = 15},
-
-                // Glaces
-                new BistrotDish{Id = 9 , Name = "Glace à la vanille", MenuType = MenuType.Glace, Price = 5},
-                new BistrotDish{Id = 10 , Name = "Glace au chocolat", MenuType = MenuType.Glace, Price = 5},
-
+                new BistrotDish{Id = 7 , Name = "Faisselle", MenuType = MenuType.Dessert, Price = 5, Restaurant = _restaurants[0]},
+                new BistrotDish{Id = 8 , Name = "Perles de coco", MenuType = MenuType.Dessert, Price = 5, Restaurant = _restaurants[1]},
+                new BistrotDish{Id = 9 , Name = "Mille feuille tunisien", MenuType = MenuType.Dessert, Price = 4, Restaurant = _restaurants[2]},
                 
-                // Entrees
-                new BistrotDish{Id = 11 , Name = "Saumon Tartare", MenuType = MenuType.Plat, Price = 8},
-                new BistrotDish{Id = 22 , Name = "Saucisson", MenuType = MenuType.Plat, Price = 6},
+                // Boisson
+                new BistrotDish{Id = 10 , Name = "Pago Abricot", MenuType = MenuType.Boisson, Price = 3, Restaurant = _restaurants[0]},
+                new BistrotDish{Id = 11 , Name = "Kirin", MenuType = MenuType.Boisson, Price = 5, Restaurant = _restaurants[1]},
+                new BistrotDish{Id = 12 , Name = "Perrier", MenuType = MenuType.Boisson, Price = 3, Restaurant = _restaurants[2]},
             };
 
-            _dishes[0].setRestaurant(_restaurants[0]);
+            for(int i = 0; i < 3; i++)
+            {
+                _restaurants[i].addDish(_dishes[i]);
+                _restaurants[i].addDish(_dishes[i+3]);
+                _restaurants[i].addDish(_dishes[i+6]);
+                _restaurants[i].addDish(_dishes[i+9]);
+            }
         }
 
         public void AddDish(BistrotDish dish)

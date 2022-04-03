@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BistrotUGA.Data.Models.Restaurant>
+﻿@model IEnumerable<BistrotUGA.Data.Models.Restaurant> 
 @{
     ViewBag.Title = "Bistrot de l'UGA";
 }
@@ -40,17 +40,13 @@
 <div class="restos_list">
     @foreach (var resto in Model)
     {
-    <div class="resto_body">
-        @resto.Name
-        @if (resto.Dishes != null)
-        {
-            foreach (var plat in resto.Dishes)
-            {
-                @plat.Name
-                @plat.Restaurant.Name
-            }
-        }
-    </div>
+    <a href="@Url.Action("Dishes/"+resto.Id,"Restaurant")">
+        <div class="resto_body">
+            <img src="@Url.Content("~/Content/Images/"+resto.Name+".jpg")" alt=@resto.Name />
+            <p>@resto.Name</p>
+            <p>@resto.Adress</p>
+        </div>
+    </a>
     }
 </div>
 

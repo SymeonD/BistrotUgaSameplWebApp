@@ -14,19 +14,7 @@ namespace BistrotUGA.Data.Models
 
         public MenuType MenuType { get; set; }
 
-        public Restaurant Restaurant;
-
-        public Restaurant GetRestaurant()
-        {
-            return this.Restaurant;
-        }
-
-        public void setRestaurant(Restaurant restaurant)
-        {
-            this.Restaurant = restaurant;
-            Console.Write(restaurant.Name);
-            restaurant.addDish(this);
-        }
+        public Restaurant Restaurant { get; set; }
 
         public float Price { get; set; }
 
