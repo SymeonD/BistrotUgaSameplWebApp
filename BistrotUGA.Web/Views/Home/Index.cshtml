@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BistrotUGA.Data.Models.Restaurant>
+@{
+    ViewBag.Title = "Bistrot de l'UGA";
+}
+
+<div id="container">
+    <article>
+        <img src="@Url.Content("~/Content/Images/entree.png")" alt="une entrée" />
+        <h3>@Html.ActionLink("Entrées","Details/0","Category")</h3>
+        
+    </article>
+
+    <article>
+        <img src="@Url.Content("~/Content/Images/plat.png")" alt="un plat" />
+        <h3>@Html.ActionLink("Plats", "Details/1", "Category")</h3>
+        
+    </article>
+
+    <article>
+        <img src="@Url.Content("~/Content/Images/dessert.png")" alt="un dessert" />
+        <h3>@Html.ActionLink("Desserts", "Details/2", "Category")</h3>
+    </article>
+
+    <article>
+        <img src="@Url.Content("~/Content/Images/fruitsdemer.png")" alt="une langouste" />
+        <h3>@Html.ActionLink("Fruits de Mer", "Details/3", "Category")</h3>
+    </article>
+
+    <article>
+        <img src="@Url.Content("~/Content/Images/boisson.png")" alt="un coktail" />
+        <h3>@Html.ActionLink("Boissons", "Details/4", "Category")</h3>
+    </article>
+
+    <article>
+        <img src="@Url.Content("~/Content/Images/glace.png")" alt="une glace" />
+        <h3>@Html.ActionLink("Glaces", "Details/5", "Category")</h3>
+    </article>
+</div>
+
+<div class="restos_list">
+    @foreach (var resto in Model)
+    {
+    <div class="resto_body">
+        @resto.Name
+        @if (resto.Dishes != null)
+        {
+            foreach (var plat in resto.Dishes)
+            {
+                @plat.Name
+                @plat.Restaurant.Name
+            }
+        }
+    </div>
+    }
+</div>
+
+
