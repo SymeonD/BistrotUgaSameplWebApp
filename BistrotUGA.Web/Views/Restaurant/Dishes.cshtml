@@ -4,33 +4,17 @@
     ViewBag.Title = "Dishes";
 }
 
-<h2>Dishes</h2>
+<h1>@Model.Name</h1>
 
 <div>
-    <h4>Restaurant</h4>
+    <h3>Dishes</h3>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Adress)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Adress)
-        </dd>
-
-    </dl>
     @foreach (var dish in Model.Dishes)
     {
     <a href="@Url.Action("Details/"+(dish.Id-1),"Restaurant")">
+        <img src="@Url.Content("~/Content/Images/Dish"+dish.Id+".jpg")" alt=@Model.Name />
         <p>@dish.Name</p>
+        <p>@dish.Price</p>
     </a>
     }
 </div>
