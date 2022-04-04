@@ -11,8 +11,8 @@
 }
 
 body {
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: rgb(44, 44, 46 );
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -56,6 +56,7 @@ header {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+        list-style: none;
         list-style: none;
     }
 
@@ -133,6 +134,27 @@ div#container article a {
 
 div#container article {
     padding-bottom: 10px;
+}
+
+.resto_body {
+    display: flex;
+    margin: 15px;
+    border: 2px solid;
+    border-radius: 10px;
+}
+
+.resto_img > img {
+    border-radius: 8px 0px 0px 8px;
+}
+
+.resto_info p:first-child {
+    font-size: 40px;
+}
+
+.resto_info {
+    margin-left: 30px;
+    margin-top: 30px;
+    font-size: 30px;
 }
 
 article:hover {

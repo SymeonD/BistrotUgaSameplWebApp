@@ -3,48 +3,18 @@
     ViewBag.Title = "Bistrot de l'UGA";
 }
 
-<div id="container">
-    <article>
-        <img src="@Url.Content("~/Content/Images/entree.png")" alt="une entrée" />
-        <h3>@Html.ActionLink("Entrées","Details/0","Category")</h3>
-        
-    </article>
-
-    <article>
-        <img src="@Url.Content("~/Content/Images/plat.png")" alt="un plat" />
-        <h3>@Html.ActionLink("Plats", "Details/1", "Category")</h3>
-        
-    </article>
-
-    <article>
-        <img src="@Url.Content("~/Content/Images/dessert.png")" alt="un dessert" />
-        <h3>@Html.ActionLink("Desserts", "Details/2", "Category")</h3>
-    </article>
-
-    <article>
-        <img src="@Url.Content("~/Content/Images/fruitsdemer.png")" alt="une langouste" />
-        <h3>@Html.ActionLink("Fruits de Mer", "Details/3", "Category")</h3>
-    </article>
-
-    <article>
-        <img src="@Url.Content("~/Content/Images/boisson.png")" alt="un coktail" />
-        <h3>@Html.ActionLink("Boissons", "Details/4", "Category")</h3>
-    </article>
-
-    <article>
-        <img src="@Url.Content("~/Content/Images/glace.png")" alt="une glace" />
-        <h3>@Html.ActionLink("Glaces", "Details/5", "Category")</h3>
-    </article>
-</div>
-
-<div class="restos_list">
+<div class="container">
     @foreach (var resto in Model)
     {
     <a href="@Url.Action("Dishes/"+resto.Id,"Restaurant")">
         <div class="resto_body">
-            <img src="@Url.Content("~/Content/Images/"+resto.Name+".jpg")" alt=@resto.Name />
-            <p>@resto.Name</p>
-            <p>@resto.Adress</p>
+            <div class="resto_img">
+                <img src="@Url.Content("~/Content/Images/"+resto.Name+".jpg")" alt=@resto.Name />
+            </div>
+            <div class="resto_info">
+                <p>@resto.Name</p>
+                <p>@resto.Adress</p>
+            </div>
         </div>
     </a>
     }
