@@ -19,10 +19,16 @@ namespace BistrotUGA.Web.Controllers
         }
 
         // GET: Restaurant
-        public ActionResult Details(int id)
+        public ActionResult Dishes(int id)
         {
             var restaurant = _dataProvider.GetAllRestaurants().ElementAt(id);
             return View(restaurant);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var dish = _dataProvider.GetAllDishes().ElementAt(id);
+            return View(dish);
         }
     }
 }

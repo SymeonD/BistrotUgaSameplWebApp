@@ -27,12 +27,10 @@
         </dd>
 
     </dl>
-    @foreach(var dish in Model.Dishes)
-            {
-                <p>@dish.Name</p>
-            }
+    @foreach (var dish in Model.Dishes)
+    {
+    <a href="@Url.Action("Details/"+(dish.Id-1),"Restaurant")">
+        <p>@dish.Name</p>
+    </a>
+    }
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

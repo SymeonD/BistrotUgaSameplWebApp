@@ -1,0 +1,13 @@
+﻿@model BistrotUGA.Data.Models.BistrotDish
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<h2>@Model.Name</h2>
+
+@foreach(var ingredient in Model.Ingredients)   
+            {
+                <p>@ingredient</p>
+            }
+

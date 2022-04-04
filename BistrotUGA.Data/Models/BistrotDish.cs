@@ -20,5 +20,7 @@ namespace BistrotUGA.Data.Models
 
         public byte[] Image { get; set; }   
 
+        public String[] Ingredients { get; set; }
+
     }
 }
